@@ -1,9 +1,12 @@
-.container1 {
+[class*=container]{
     border: 1px solid black;
     height: 300px;
     width: 600px;
     display: grid;
     margin: 20px;
+}
+.container1 {
+   
     grid-template-columns: [line1] 40px [line2] 50px [line3] auto [line4] 50px [line5] 40px [line6];
     grid-template-rows: [row1] 25% [row2] 100px [row3] auto [row4];
    /* grid-template-columns: 10% 10% auto 10% 10%;
@@ -31,4 +34,46 @@
     background-color: skyblue;
     grid-column: 1 / span 3;
     grid-row: row2 /row4;
+}
+
+/*without positioning*/
+.container2 {
+    grid-template-columns: 100px 100px;
+    grid-template-rows: auto;
+    justify-items: end;
+    justify-content: start;
+}
+
+[class*=box] {
+    border: 1px solid gray;
+}
+.container3 {
+    grid-template-columns: repeat(4, 1fr);
+    /*grid-template-rows: auto;*/
+    grid-template-areas: 
+        "header header header sidebar"
+        "content content content sidebar"
+        "footer footer footer sidebar"
+    ;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+header {
+    grid-area: header;
+    background-color: tomato;
+}
+content {
+    grid-area: content;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+sidebar {
+    grid-area: sidebar;
+    background-color: gray;
+}
+footer {
+    grid-area: footer;
+    background-color: beige;
 }
